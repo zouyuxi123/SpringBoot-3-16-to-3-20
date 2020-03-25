@@ -1,15 +1,13 @@
 package com.home.springbootjpa;
 
 import com.home.springbootjpa.bean.User;
-import com.home.springbootjpa.dao.userMapper;
+import com.home.springbootjpa.dao.UserMapper;
 import com.home.springbootjpa.service.UserService;
-import org.hamcrest.core.AnyOf;
-import org.hamcrest.core.Is;
-import org.hamcrest.core.StringContains;
+
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.omg.IOP.CodecPackage.TypeMismatch;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
@@ -28,7 +26,7 @@ public class SpringbootJpaApplicationTests {
     @Autowired
     UserService userService;
     @Autowired
-    userMapper mapper;
+    UserMapper mapper;
 
 
     //测试连接池是否配置成功
@@ -42,11 +40,11 @@ public class SpringbootJpaApplicationTests {
     @Test
     public void getUser() {
         User user = userService.queryById(2);
-        System.out.println(user.getUname());
+        System.out.println(user.getUserName());
         /**利用断言判断抽取出来的用户是否是李军
          只有在断言为true才会运行后面的代码
          */
-        Assert.assertEquals("李军", user.getUname());
+        Assert.assertEquals("李军", user.getUserName());
         System.out.println("你好，我是李军！");
 
     }
@@ -54,10 +52,10 @@ public class SpringbootJpaApplicationTests {
     @Test
     @Transactional  //让Spring在@Before 和 @After之间增加事务
     @Rollback   //为了测试类不影响其他测试结果，此处在方法级别上回滚
-    public void test03() {
+    public void rollbackTest() {
         User user = new User();
         //先插入一个用户
-        user.setUname("张无忌");
+        user.setUserName("张无忌");
         user.setAge(19);
         boolean b;
         try {

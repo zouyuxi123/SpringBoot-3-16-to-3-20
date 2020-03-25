@@ -14,13 +14,13 @@ public interface UserService {
     public void insertUser(User user);
 
     //根据ID删除用户
-    public void deleteById(Integer uid);
+    public void deleteById(Integer id);
 
     //修改用户信息
     public void updateUser(User user);
 
     //根据用户ID查询
-    public User queryById(Integer uid);
+    public User queryById(Integer id);
 
     //查询所有用户信息
     public List<User> queryAll();

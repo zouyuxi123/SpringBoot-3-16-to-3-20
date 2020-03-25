@@ -9,6 +9,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
  */
 //继承接口
 
-public interface userMapper extends JpaRepository<User,Integer> {//后者是传入该表的主键
+public interface UserMapper extends JpaRepository<User,Integer> {//后者是传入该表的主键
 
 }

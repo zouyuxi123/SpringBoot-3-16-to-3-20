@@ -15,35 +15,35 @@ import javax.persistence.*;
 public class User {
     @Id//这是一个主键
     @GeneratedValue(strategy = GenerationType.IDENTITY)//自增主键
-    private Integer uid;
-    @Column(name = "uname")
-    private String uname;
+    private Integer id;
+    @Column(name = "userName")
+    private String userName;
     @Column(name = "age")//不写默认是属性名
     private Integer age;
 
     @Override
     public String toString() {
         return "User{" +
-                "uid=" + uid +
-                ", uname='" + uname + '\'' +
+                "id=" + id +
+                ", userName='" + userName + '\'' +
                 ", age=" + age +
                 '}';
     }
 
-    public Integer getUid() {
-        return uid;
+    public Integer getId() {
+        return id;
     }
 
-    public void setUid(Integer uid) {
-        this.uid = uid;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public String getUname() {
-        return uname;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setUname(String uname) {
-        this.uname = uname;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public Integer getAge() {

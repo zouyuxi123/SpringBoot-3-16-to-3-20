@@ -1,7 +1,7 @@
 package com.home.springbootjpa.service.serviceImpl;
 
 import com.home.springbootjpa.bean.User;
-import com.home.springbootjpa.dao.userMapper;
+import com.home.springbootjpa.dao.UserMapper;
 import com.home.springbootjpa.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,7 +15,7 @@ import java.util.List;
 @Service
 public class UserServiceImpl implements UserService {
     @Autowired
-    userMapper userMapper;
+    UserMapper userMapper;
 
     @Override
     public void insertUser(User user) {
@@ -25,9 +25,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void deleteById(Integer uid) {
+    public void deleteById(Integer id) {
         //根据ID删除用户
-        userMapper.delete(uid);
+        userMapper.delete(id);
     }
 
     @Override
@@ -37,9 +37,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User queryById(Integer uid) {
+    public User queryById(Integer id) {
         //根据用户ID查询
-        return userMapper.getOne(uid);
+        return userMapper.getOne(id);
     }
 
     @Override
